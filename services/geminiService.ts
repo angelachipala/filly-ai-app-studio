@@ -1,54 +1,62 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// Configuração da Chave do Netlify
 const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || "";
 const genAI = new GoogleGenerativeAI(apiKey);
 
-// 1. Função de Chat
-export const generateText = async (prompt: string) => {
+// 1. Chat Geral
+export const generateText = async (prompt: string): Promise<string> => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent(prompt);
     return result.response.text();
-  } catch (e) { return "Erro ao ligar ao Gemini."; }
+  } catch (e) { return "Lamento, o chat falhou."; }
 };
 
-// 2. Função de Estúdio de Imagem
-export const rewritePrompt = async (prompt: string) => {
+// 2. Estúdio de Imagem (Melhorar Prompt)
+export const rewritePrompt = async (prompt: string): Promise<string> => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent("Melhore este prompt de imagem: " + prompt);
+    const result = await model.generateContent("Enhance this image prompt: " + prompt);
     return result.response.text();
   } catch (e) { return prompt; }
 };
 
-// 3. Função de Conselhos do Diretor
-export const getDirectorAdvice = async (prompt: string) => {
+// 3. Conselhos do Diretor (Director AI)
+export const getDirectorAdvice = async (prompt: string): Promise<any> => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent("Dê conselhos criativos para: " + prompt);
+    const result = await model.generateContent("Director advice for: " + prompt);
     return { advice: result.response.text(), category: "Direção" };
-  } catch (e) { return { advice: "Sem conselhos agora.", category: "Info" }; }
+  } catch (e) { return { advice: "Sem conselhos.", category: "Aviso" }; }
 };
 
-// 4. Função de Redes Sociais
-export const generateSocialPost = async (prompt: string) => {
+// 4. Posts Redes Sociais
+export const generateSocialPost = async (prompt: string): Promise<string> => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent("Crie um post sobre: " + prompt);
+    const result = await model.generateContent("Create post for: " + prompt);
     return result.response.text();
   } catch (e) { return "Erro no post."; }
 };
 
-// 5. Função de Análise de Arquivos
+// 5. Centro de Upload
 export const analyzeUploadedFile = async (file: any) => {
-  return { analysis: "Processado.", tags: ["IA"] };
+  return { analysis: "Ficheiro processado.", tags: ["IA"] };
 };
 
-// 6. Função de Gerador de Imagem (Pollinations)
-export const generateImage = async (prompt: string) => {
-  const seed = Math.floor(Math.random() * 1000000);
-  return `https://pollinations.ai/p/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true`;
+// 6. GERADOR DE IMAGEM (Corrige o erro do site)
+export const generateImage = async (prompt: string): Promise<string | null> => {
+  try {
+    // Usamos o motor Pollinations que nunca falha e é grátis
+    const seed = Math.floor(Math.random() * 999999);
+    const encoded = encodeURIComponent(prompt);
+    return `https://pollinations.ai/p/${encoded}?width=1024&height=1024&seed=${seed}&nologo=true`;
+  } catch (e) {
+    console.error("Erro na imagem:", e);
+    return null;
+  }
 };
 
-// 7. Função de Visão
-export const analyzeImage = async (img: any, p: string) => "Manutenção";
+// 7. Visão
+export const analyzeImage = async (img: any, p: string) => "Em manutenção.";
