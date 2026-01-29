@@ -2,19 +2,44 @@
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filly AI Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Filly AI Studio | Criatividade Profissional</title>
 
-    <!-- Google AdSense - Teu ID Real -->
+    <!-- Google AdSense - Monetização Ativa -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8433441557262994" crossorigin="anonymous"></script>
 
+    <!-- Tailwind CSS para um Visual Premium -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonte Moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-      body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; }
+      body {
+        background-color: #09090b; /* Fundo escuro profissional */
+        color: #f4f4f5;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        margin: 0;
+      }
+      /* Brilho verde no topo do site para o visual "horrível" desaparecer */
+      .glow-effect {
+        position: fixed;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 300px;
+        background: radial-gradient(circle, rgba(132, 204, 22, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+      }
     </style>
   </head>
   <body>
+    <div class="glow-effect"></div>
     <div id="root"></div>
-    <!-- Caminho para o código principal -->
+    
+    <!-- Ligação ao código principal do seu aplicativo -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
