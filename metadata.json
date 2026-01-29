@@ -1,0 +1,8 @@
+{
+  "name": "Copy of FILLY AI STUDIO 9",
+  "description": "Professional AI platform for content creators and entrepreneurs in Angola. Generate high-quality images, cinematic videos, and receive creative direction using Google's latest Gemini and Veo models.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
