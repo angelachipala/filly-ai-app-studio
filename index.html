@@ -3,39 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Filly AI Studio | Oficial</title>
+    <title>VibeAI | Creative Studio</title>
 
-    <!-- Google AdSense -->
+    <!-- Google AdSense - Teu ID Real -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8433441557262994" crossorigin="anonymous"></script>
 
-    <!-- Estilo Global e Tailwind -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-      :root { --primary: #84cc16; }
       body {
         background-color: #09090b;
         color: #ffffff;
         font-family: 'Plus Jakarta Sans', sans-serif;
         margin: 0;
-        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
       }
-      /* Corrige o problema do site ficar preto ou sem cores */
-      #root { min-height: 100vh; display: flex; flex-direction: column; background: #09090b; }
-      
-      /* Brilho de fundo */
-      .bg-glow {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: radial-gradient(circle at 50% -10%, rgba(132, 204, 22, 0.15) 0%, transparent 60%);
-        pointer-events: none; z-index: 0;
+      .glass {
+        background: rgba(24, 24, 27, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
+      .bg-gradient-vibe {
+        background: radial-gradient(circle at 50% -20%, #3f6212 0%, transparent 60%);
+      }
+      /* Previne scroll horizontal */
+      html, body { overflow-x: hidden; }
     </style>
   </head>
   <body>
-    <div class="bg-glow"></div>
+    <div class="bg-gradient-vibe fixed inset-0 pointer-events-none"></div>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="/App.jsx"></script>
   </body>
 </html>
